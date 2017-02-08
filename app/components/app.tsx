@@ -1,7 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, MapStateToProps } from 'react-redux';
 
 import { incrementCounter, decrementCounter, addCounter } from '../actions';
 import { CounterList } from './counter_list';
@@ -15,13 +15,13 @@ interface IAppProps {
   counters?: number[];
 }
 
-function select(state: { counters: number[] }): IAppState {
+const mapStateToProps:MapStateToProps =(state: { counters: number[] }): IAppState =>{
   return {
     counters: state.counters,
   };
 }
 
-@connect(select)
+@connect(mapStateToProps)
 export class App extends React.Component<IAppProps, {}> {
   public render(): React.ReactElement<{}> {
     const { dispatch, counters }: any = this.props;
