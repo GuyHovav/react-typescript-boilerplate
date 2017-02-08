@@ -2,8 +2,9 @@
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Store, createStore } from 'redux';
+import { Store, createStore} from 'redux';
 import { Provider } from 'react-redux';
+import { devToolsEnhancer } from 'redux-devtools-extension';
 
 import { App } from './components/app';
 import { counterApp } from './reducers';
@@ -17,7 +18,9 @@ interface IHotModule {
 declare const module: IHotModule;
 
 function configureStore(): Store {
-  const store: Store = createStore(counterApp);
+  const store: Store = createStore(counterApp, /* preloadedState, */ devToolsEnhancer(
+  // specify here name, actionsBlacklist, actionsCreators and other options if needed
+));
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
