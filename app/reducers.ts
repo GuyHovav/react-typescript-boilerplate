@@ -21,6 +21,9 @@ function counters(state: number[] = [0, 0, 0], action: ICounterAction): number[]
 
     case ACTION.AddCounter:
       return [...state, 0];
+    
+    case ACTION.RemoveCounter:
+      return state.slice(0, state.length-1);
 
     default:
       return state;

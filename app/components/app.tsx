@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { connect, MapStateToProps } from 'react-redux';
 
-import { incrementCounter, decrementCounter, addCounter } from '../actions';
+import { incrementCounter, decrementCounter, addCounter, removeCounter } from '../actions';
 import { CounterList } from './counter_list';
 
 interface IAppState {
@@ -33,6 +33,7 @@ export class App extends React.Component<IAppProps, {}> {
         />
 
         <button onClick={() => dispatch(addCounter())}>Add Counter</button>
+        <button onClick={() => dispatch(removeCounter())}>Remove Counter</button>
       </div>
     );
   }

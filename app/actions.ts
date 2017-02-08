@@ -1,6 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-export enum ACTION { IncrementCounter, DecrementCounter, AddCounter }
+export enum ACTION { IncrementCounter, DecrementCounter, AddCounter, RemoveCounter }
 
 export interface ICounterAction {
   type: ACTION;
@@ -17,4 +17,8 @@ export function decrementCounter(counterId: number): ICounterAction {
 
 export function addCounter(): ICounterAction {
   return { type: ACTION.AddCounter };
+}
+
+export function removeCounter(): ICounterAction {
+  return { type: ACTION.RemoveCounter };
 }
