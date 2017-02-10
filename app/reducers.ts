@@ -17,6 +17,7 @@ function counters(state: number[] = [0, 0, 0], action: ICounterAction): number[]
         ...state.slice(0, action.counterId),
         state[action.counterId] - 1,
         ...state.slice(action.counterId + 1),
+        
       ];
 
     case ACTION.AddCounter:
